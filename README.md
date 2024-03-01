@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	rowscol "github.com/Mgear2899/RowsColums"
+	rowscol "github.com/mgear2899/rowscolums"
 )
 
 func main() {
