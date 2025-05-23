@@ -27,3 +27,10 @@ func main() {
 	}
 }
 ```
+
+Example output:
+```
+map[age:26 name:Bob]
+map[age:18 name:John]
+map[age:43 name:Ivan]
+```
