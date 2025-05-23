@@ -2,11 +2,10 @@ package rowscolums
 
 import (
 	"database/sql"
-	"log"
 )
 
 // automatically recognize columns as a result of the response
-func QueryRowsColums(cols []string, rows *sql.Rows) map[string]interface{} {
+func QueryRowsColums(cols []string, rows *sql.Rows) (map[string]interface{}, error) {
 	m := make(map[string]interface{})
 
 	colums := make([]interface{}, len(cols))
@@ -17,12 +16,12 @@ func QueryRowsColums(cols []string, rows *sql.Rows) map[string]interface{} {
 	}
 
 	if err := rows.Scan(columsPointer...); err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 
 	for i, colName := range cols {
 		val := columsPointer[i].(*interface{})
 		m[colName] = *val
 	}
-	return m
+	return m, nil
 }

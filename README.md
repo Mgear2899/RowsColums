@@ -22,7 +22,10 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		res := rowscol.QueryRowsColums(cols, rows)
+		res, err := rowscol.QueryRowsColums(cols, rows)
+		if err != nil {
+			log.Fatal(err)
+		}
 		fmt.Println(res)
 	}
 }
